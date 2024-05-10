@@ -31,3 +31,29 @@ body {
     text-wrap: balance;
   }
 }
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning-border {
+  position: relative;
+}
+
+.spinning-border::after {
+  content: '';
+  position: absolute;
+  top: -3px; /* Adjust the border size */
+  left: -3px; /* Adjust the border size */
+  right: -3px; /* Adjust the border size */
+  bottom: -3px; /* Adjust the border size */
+  border: 3px solid transparent; /* Border size and style */
+  border-top-color: #4FD1C5; /* Highlight color */
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+

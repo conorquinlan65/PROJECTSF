@@ -1,26 +1,32 @@
 import React from "react";
-import { CodeBracketIcon, EyeIcon, ChatAltIcon } from "@heroicons/react/24/outline";
+import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-lg bg-gray-900 hover:shadow-2xl transition duration-300">
-      <div className="h-64 md:h-72 bg-cover bg-center relative">
-        <div className="overlay absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
-          <Link href={gitUrl}>
-            <CodeBracketIcon className="h-10 w-10 text-gray-400 hover:text-white mr-2" />
+    <div>
+      <div
+        className="h-52 md:h-52 rounded-t-xl relative group"
+        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
+      >
+        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
+          <Link
+            href={gitUrl}
+            className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+          >
+            <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
           </Link>
-          <Link href={previewUrl}>
-            <EyeIcon className="h-10 w-10 text-gray-400 hover:text-white" />
+          <Link
+            href={previewUrl}
+            className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+          >
+            <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
           </Link>
         </div>
-        <img src={imgUrl} alt={title} className="w-full h-full object-cover" />
       </div>
-      <div className="p-6 bg-gray-800">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-gray-400">{description}</p>
-        <Link href={gitUrl}>
-        </Link>
+      <div className="text-white rounded-b-xl bg-gradient-to-r from-purple-400 to-pink-600 py-3 px-3">
+        <h5 className="text-xl font-bold mb-1">{title}</h5>
+        <p className="text-white">{description}</p>
       </div>
     </div>
   );

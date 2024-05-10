@@ -4,30 +4,45 @@ import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
+// Sample data including multiple tags
 const projectsData = [
   {
     id: 1,
     title: "React Portfolio Website",
-    description: "Project 1 description",
+    description: "Build a personalized portfolio showcasing your projects.",
     image: "/images/projects/1.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Web", "React"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 2,
+    title: "Node.js API",
+    description: "A RESTful API built with Express and Node.js.",
+    image: "/images/projects/2.png",
+    tag: ["All", "Backend", "Node.js"],
     gitUrl: "/",
     previewUrl: "/",
   }
 ];
 
 const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
+  const [selectedTag, setSelectedTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  // Handle tag change
   const handleTagChange = (newTag) => {
-    setTag(newTag);
+    setSelectedTag(newTag);
   };
 
+  // Filter projects based on tag
   const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
+    project.tag.includes(selectedTag)
   );
+
+  // Extract all unique tags
+  const allTags = Array.from(new Set(projectsData.flatMap(project => project.tag)));
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
@@ -35,38 +50,30 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+    <section id="projects" className="container mx-auto px-4">
+      <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mt-4 mb-6 md:mb-6">
         My Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
+      <div className="flex flex-wrap justify-center gap-3 py-6">
+        {allTags.map((tag) => (
+          <ProjectTag
+            key={tag}
+            name={tag}
+            onClick={handleTagChange}
+            isSelected={selectedTag === tag}
+          />
+        ))}
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+      <ul ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {filteredProjects.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}

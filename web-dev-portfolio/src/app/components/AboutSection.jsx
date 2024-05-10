@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaCertificate } from "react-icons/fa";
 import TabButton from "./TabButton";
+import AWSIcon from '/Users/conorquinlan/Desktop/GitHub/PROJECTSF/web-dev-portfolio/public/images/certification_icons/aws_cp.png'; // Replace with your actual import path
 
 const TAB_DATA = [
   {
@@ -61,7 +62,7 @@ const AboutSection = () => {
           ))}
         </div>
         <div className="col-span-2 text-left">
-          <h2 className="text-4xl font-bold mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">About Me</h2>
           <p className="text-base lg:text-lg">
             I am a Security Engineer with extensive experience in building cloud products focused on security.
             My projects range from developing Cloud Threat Vulnerability Management (TVM) systems, automating workflows

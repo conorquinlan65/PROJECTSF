@@ -44,14 +44,15 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="col-span-5 place-self-center mt-4 lg:mt-0">
-          <div className="rounded-full bg-[#F9F6EE] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] relative">
-            <Image 
-            src="/images/main-removebg-preview.png"
-            alt="headshot"
-            className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            width={175}
-            height={175}>
-            </Image>
+        <div className="relative w-72 h-72 lg:w-128 lg:h-128 rounded-full bg-[#F9F6EE] mt-5 lg:mt-10 overflow-hidden spinning-border">
+        <Image 
+              src="/images/main-removebg-preview.png"
+              alt="headshot"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center 25%" // Adjust this value to position the image lower
+              className="rounded-full"
+            />
           </div>
         </div>
       </div>

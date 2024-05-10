@@ -42,7 +42,7 @@ const EmailSection = () => {
   return (
     <section id="contact" className="grid grid-cols-1 md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
       <div className="z-5 flex flex-col justify-center items-center md:items-start md:pl-40">
-        <h5 className="text-xl font-bold text-white my-2 text-center md:text-left">Let's Connect</h5>
+        <h5 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 my-2 text-center md:text-left">Let's Connect</h5>
         <p className="text-gray-300 mb-4 max-w-md text-center md:text-left">
           I'm currently looking for new opportunities, and my inbox is always open. Whether you have a question or just want to say hi, I'll do my best to get back to you!
         </p>
@@ -65,7 +65,7 @@ const EmailSection = () => {
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium"
+                className=" block mb-2 text-sm font-medium"
               >
                 Email
               </label>
@@ -110,7 +110,7 @@ const EmailSection = () => {
             </div>
             <button
               type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="bg-primary-500 hover:bg-primary-600 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 font-medium py-2.5 px-5 rounded-lg w-full"
             >
               Send Message
             </button>
