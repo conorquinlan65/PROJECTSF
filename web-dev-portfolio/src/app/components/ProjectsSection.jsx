@@ -51,6 +51,9 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="container mx-auto px-4">
+      <div className="py-10">
+
+      </div>
       <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mt-4 mb-6 md:mb-6">
         My Projects
       </h2>

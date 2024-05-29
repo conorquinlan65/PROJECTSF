@@ -49,6 +49,9 @@ const AboutSection = () => {
 
   return (
     <section className="text-white" id="about">
+      <div className="py-8">
+
+      </div>
       <div className="md:grid md:grid-cols-3 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <div className="col-span-1 grid grid-cols-2 gap-8">
           {/* Icons arranged in a 2x2 grid */}
